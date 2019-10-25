@@ -1,0 +1,1 @@
+var Enums = { ContractType: {HourlySalaryEmployee: {name: 'HourlySalaryEmployee',description: 'Hourly Salary',value: 0},MonthlySalaryEmployee: {name: 'MonthlySalaryEmployee',description: 'Monthly Salary',value: 1},}, };

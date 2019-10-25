@@ -1,0 +1,41 @@
+﻿@model List<EmployeeForGridView>
+@{
+    ViewBag.Title = "Employees";
+}
+<h2 class="page-header">Employees</h2>
+
+@using (Html.BeginForm("Index", "Employee", FormMethod.Get, new { @class = "form-inline well well-sm" }))
+{
+    <div class="form-group">
+        <input type="number" class="form-control" name="Id" value="0" min="0" placeholder="Id to search">
+    </div>
+    <button type="submit" class="btn btn-success"> <i class="fa fa-search"></i>Get Employees</button>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contract Type</th>
+            <th>Role Name</th>
+            <th>Role Description</th>
+            <th>Hourly Salary</th>
+            <th>Monthly Salary</th>
+            <th>Total Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+        <tr>
+            <td>@m.Name</td>
+            <td>@m.ContractTypeName</td>
+            <td>@m.RoleName</td>
+            <td>@m.RoleDescription</td>
+            <td>@string.Format("{0:C0}", m.HourlySalary)</td>
+            <td>@string.Format("{0:C0}", @m.MonthlySalary)</td>
+            <td>@string.Format("{0:C0}", @m.AnualSalary)</td>
+        </tr>
+        }
+    </tbody>
+</table>
